@@ -5,8 +5,14 @@ public class Cisterna {
 	private Integer quantita;
 	private Integer evapPerDay;
 	private Integer livelloGas;
+	private String tipoCisterna;
 	
-	
+	public String getTipoCisterna() {
+		return tipoCisterna;
+	}
+	public void setTipoCisterna(String tipoCisterna) {
+		this.tipoCisterna = tipoCisterna;
+	}
 	public Integer getQuantita() {
 		return quantita;
 	}
