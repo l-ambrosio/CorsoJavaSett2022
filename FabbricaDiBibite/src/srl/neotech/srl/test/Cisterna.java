@@ -5,13 +5,14 @@ public class Cisterna {
 	private Integer quantita;
 	private Integer evapPerDay;
 	private Integer livelloGas;
-	private String tipoCisterna;
+	private String tipologia;
 	
-	public String getTipoCisterna() {
-		return tipoCisterna;
+	
+	public String getTipologia() {
+		return tipologia;
 	}
-	public void setTipoCisterna(String tipoCisterna) {
-		this.tipoCisterna = tipoCisterna;
+	public void setTipologia(String tipologia) {
+		this.tipologia = tipologia;
 	}
 	public Integer getQuantita() {
 		return quantita;
@@ -31,6 +32,14 @@ public class Cisterna {
 	public void setLivelloGas(Integer livelloGas) {
 		this.livelloGas = livelloGas;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Cisterna [tipologia=" + tipologia + ", quantita=" + quantita + ", evapPerDay=" + evapPerDay + ", livelloGas=" + livelloGas
+				+ "]";
+	}
+	
 	
 
 }

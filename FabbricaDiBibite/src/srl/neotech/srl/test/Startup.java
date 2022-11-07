@@ -8,35 +8,36 @@ public class Startup {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-	ArrayList <Cisterna> cisterna=new ArrayList<Cisterna>();
+	Cantina cantina=new Cantina();
+	
+	
+	Random rnd=new Random();
+	
 	
 	for(int i=0;i<100;i++) {
-		Random rnd=new Random();
-		int numCisterna=rnd.nextInt(100-1)+1;
-		Cisterna c=new Cisterna();
+		Cisterna unaCisternaDaAggiungere=new Cisterna();
+		int numCasuale=rnd.nextInt(1,4);
+		if(numCasuale==1) unaCisternaDaAggiungere.setTipologia(MaterialeCisterna.ACCIAIO.toString());
+		if(numCasuale==2) unaCisternaDaAggiungere.setTipologia(MaterialeCisterna.ALLUMINIO.toString());
+		if(numCasuale==3) unaCisternaDaAggiungere.setTipologia(MaterialeCisterna.RAME.toString());
 		
-		if(numCisterna>=0&&numCisterna<30) {
-			c.setTipoCisterna("alluminio");
-			c.setLivelloGas(20);
-			c.setQuantita(50);
-			c.setEvapPerDay(10);
-		}
-		if(numCisterna>=31&&numCisterna<=50) {
-			c.setTipoCisterna("rame");
-			c.setLivelloGas(10);
-			c.setQuantita(40);
-			c.setEvapPerDay(20);
-		}
-		if(numCisterna>=51&&numCisterna<100) {
-			c.setTipoCisterna("acciaio");
-			c.setLivelloGas(30);
-			c.setQuantita(60);
-			c.setEvapPerDay(5);
-		}
+		numCasuale=rnd.nextInt(1,1001);
+		unaCisternaDaAggiungere.setQuantita(numCasuale);
 		
-		System.out.println("n"+numCisterna+" Tipo Cisterna: "+c.getTipoCisterna()+" Gas evaporato: "+c.getEvapPerDay()+" Livello Gas: "+c.getLivelloGas()+" Litri: "+c.getQuantita());
-	}	
+		numCasuale=rnd.nextInt(1,11);
+		unaCisternaDaAggiungere.setEvapPerDay(numCasuale);
 		
+		numCasuale=rnd.nextInt(1,101);
+		unaCisternaDaAggiungere.setLivelloGas(numCasuale);
+		
+		cantina.getCisterne().add(unaCisternaDaAggiungere);
 	}
+	
+	for(Cisterna c:cantina.getCisterne()) {
+		System.out.println(c);
+		
+		}
+	
+	}	
 
 }
