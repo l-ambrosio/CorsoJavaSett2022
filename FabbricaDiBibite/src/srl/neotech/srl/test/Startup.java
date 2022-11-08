@@ -38,6 +38,36 @@ public class Startup {
 		
 		}
 	
+	Integer quantitaVendibile=0;
+	for(Cisterna c:cantina.getCisterne()) {
+		if(c.getLivelloGas()>=cantina.getLivelloMinimoDiGas()) quantitaVendibile=quantitaVendibile+c.getQuantita();
+	}
+		System.out.println("QUANTITA VENDIBILE: "+quantitaVendibile);
+		
+		
+	Integer quantitaVendibileEntroSetteGiorni=0;
+	for(Cisterna c:cantina.getCisterne()) {
+		Integer quantitaEvaporata=c.getEvapPerDay()*7;
+		if((c.getLivelloGas()-quantitaEvaporata)<cantina.getLivelloMinimoDiGas()) quantitaVendibileEntroSetteGiorni=quantitaVendibileEntroSetteGiorni+c.getQuantita();
+	}
+		System.out.println("QUANTITA NON VENDIBILE ENTRO 7 GIORNI: "+quantitaVendibileEntroSetteGiorni);
+	
+		
+	Integer numeroMassimoDiGiorni=0;
+	Integer i=1;
+	
+	for(Cisterna c:cantina.getCisterne()) {
+		Integer numeroGiorniCisterna=1;
+		while(c.getLivelloGas()-(c.getEvapPerDay()*numeroGiorniCisterna)<cantina.getLivelloMinimoDiGas()) {
+			numeroGiorniCisterna++;
+		}
+		
+		if(numeroGiorniCisterna>numeroMassimoDiGiorni) numeroMassimoDiGiorni=numeroGiorniCisterna;
+		
+	}
+	
+	System.out.println("GIORNI ENTRO IN CUI NON CI SARA' PIù BIBITA VENDIBILE:"+numeroMassimoDiGiorni);
+	
 	}	
 
 }
