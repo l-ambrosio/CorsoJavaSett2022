@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dettaglio-asl>
+	<denominazione>ASL Roma 1</denominazione>
+	<via>Via Benevento, 34</via>
+	<orario-apertura>09.00</orario-apertura>
+	<orario-chiusura>17.00</orario-chiusura>
+	<numero-parcheggi>180</numero-parcheggi>
+	<ospedali>
+		<ospedale>
+			<denominazione>San Massimiliano</denominazione>
+			<via>Viale Kent, 56</via>
+			<reparti>
+				<reparto>
+					<denominazione>Ortopedia</denominazione>
+					<primario>Dott. Saccucci</primario>
+					<posti-letto>67</posti-letto>
+				</reparto>
+				<reparto>
+					<denominazione>Chirurgia</denominazione>
+					<primario>Dott.sa Camponeschi</primario>
+					<posti-letto>79</posti-letto>
+				</reparto>
+				<reparto>
+					<denominazione>Medicina Generale</denominazione>
+					<primario>Dott. Guiso</primario>
+					<posti-letto>380</posti-letto>
+				</reparto>
+			</reparti>
+		</ospedale>
+		<ospedale>
+			<denominazione>San Feliciano</denominazione>
+			<via>Viale Roma, 80</via>
+			<reparti>
+				<reparto>
+					<denominazione>Ortopedia</denominazione>
+					<primario>Dott.sa Mannarino</primario>
+					<posti-letto>50</posti-letto>
+				</reparto>
+				<reparto>
+					<denominazione>Chirurgia</denominazione>
+					<primario>Dott.sa Ambrosio</primario>
+					<posti-letto>150</posti-letto>
+				</reparto>
+				<reparto>
+					<denominazione>Medicina Generale</denominazione>
+					<primario>Dott. Ambrosio</primario>
+					<posti-letto>400</posti-letto>
+				</reparto>
+			</reparti>
+		</ospedale>
+	
+	
+	
+	</ospedali>
+	
+</dettaglio-asl>
