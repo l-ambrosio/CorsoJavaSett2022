@@ -4,6 +4,6 @@ public enum StatoAssociato {
 	
 	ATTIVO,
 	DISATTIVO;
-	
 
 }
+
