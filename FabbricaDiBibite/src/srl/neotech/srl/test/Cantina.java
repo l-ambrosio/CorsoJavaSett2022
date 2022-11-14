@@ -6,6 +6,7 @@ import java.util.List;
 public class Cantina {
 	
 	List<Cisterna> cisterne=new ArrayList<Cisterna>();
+	
 	private Integer livelloMinimoDiGas=45;
 	
 	
