@@ -2,7 +2,8 @@ package srl.neotech.biblioteca;
 
 import java.util.ArrayList;
 
-public class Associati {
+public class Associato {
+
 	
 	private Integer idAssociato;
 	private String nominativo;
@@ -51,5 +52,6 @@ public class Associati {
 	}
 	
 	
-
+	
+	
 }

@@ -5,6 +5,5 @@
  * @author ludovica
  *
  */
-module Biblioteca {
-	requires javafaker;
+module Ripasso {
 }

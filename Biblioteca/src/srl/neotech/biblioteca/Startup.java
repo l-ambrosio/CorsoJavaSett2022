@@ -21,7 +21,7 @@ public class Startup {
 		Random rnd=new Random();
 		
 		for(int i=1;i<100;i++) {
-		Libri unLibroDaAggiungere=new Libri();
+		Libro unLibroDaAggiungere=new Libro();
 		int numCasuale=rnd.nextInt(1,4);
 		if(numCasuale==1) unLibroDaAggiungere.setSezione(SezioneLibri.FANTASY.toString());
 		if(numCasuale==2) unLibroDaAggiungere.setSezione(SezioneLibri.HORROR.toString());
@@ -38,13 +38,13 @@ public class Startup {
 		
 		}
 		
-		for(Libri l:biblioteca.getLibri()) {
+		for(Libro l:biblioteca.getLibri()) {
 			System.out.println(l);
 
 		}
 		
 		for(int i=0;i<100;i++) {
-		Associati unAssociatoDaAggiungere=new Associati();
+		Associato unAssociatoDaAggiungere=new Associato();
 		int numCasuale=rnd.nextInt(1,2);
 		if(numCasuale==1) unAssociatoDaAggiungere.setStato(StatoAssociato.ATTIVO.toString());
 		if(numCasuale==2) unAssociatoDaAggiungere.setStato(StatoAssociato.DISATTIVO.toString());	
@@ -54,10 +54,12 @@ public class Startup {
 		
 		biblioteca.getAssociati().add(unAssociatoDaAggiungere);
 		biblioteca.getAssociati().remove(numCasuale);
-			
+
+		unAssociatoDaAggiungere.libriPresi.add(numCasuale);
+		
 		}
 		
-		for(Associati a:biblioteca.getAssociati()) {
+		for(Associato a:biblioteca.getAssociati()) {
 			System.out.println(a);
 			
 		}

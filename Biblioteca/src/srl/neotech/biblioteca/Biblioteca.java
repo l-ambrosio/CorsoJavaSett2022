@@ -5,20 +5,20 @@ import java.util.List;
 
 public class Biblioteca {
 	
-	List<Libri>libri=new ArrayList<Libri>();
-	List<Associati>associati=new ArrayList<Associati>();
+	List<Libro>libri=new ArrayList<Libro>();
+	List<Associato>associati=new ArrayList<Associato>();
 	
 	
-	public List<Libri> getLibri() {
+	public List<Libro> getLibri() {
 		return libri;
 	}
-	public void setLibri(List<Libri> libri) {
+	public void setLibri(List<Libro> libri) {
 		this.libri = libri;
 	}
-	public List<Associati> getAssociati() {
+	public List<Associato> getAssociati() {
 		return associati;
 	}
-	public void setAssociati(List<Associati> associati) {
+	public void setAssociati(List<Associato> associati) {
 		this.associati = associati;
 	}
 

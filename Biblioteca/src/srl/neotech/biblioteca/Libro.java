@@ -1,7 +1,8 @@
 package srl.neotech.biblioteca;
 
-public class Libri {
+public class Libro {
 
+	
 	private Integer idLibro;
 	private String titolo;
 	private String autore;
@@ -43,6 +44,7 @@ public class Libri {
 		return "Libri [idLibro=" + idLibro + ", titolo=" + titolo + ", autore=" + autore + ", scaffale=" + scaffale
 				+ ", sezione=" + sezione + "]";
 	}
+	
 	
 	
 }
