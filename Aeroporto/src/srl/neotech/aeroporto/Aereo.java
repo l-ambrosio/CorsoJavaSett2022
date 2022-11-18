@@ -11,6 +11,7 @@ public class Aereo {
 	private String stato;
 	
 	
+	
 	public Integer getIdUnivoco() {
 		return idUnivoco;
 	}
@@ -53,7 +54,6 @@ public class Aereo {
 	public void setStato(String stato) {
 		this.stato = stato;
 	}
-	
 	
 	
 

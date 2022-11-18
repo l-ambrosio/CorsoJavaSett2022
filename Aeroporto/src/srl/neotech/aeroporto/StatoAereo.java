@@ -7,6 +7,5 @@ public enum StatoAereo {
 	FUORI_SPAZIO_AEREO,
 	IN_AVVICINAMENTO,
 	ATTERRATO;
-	
 
 }
