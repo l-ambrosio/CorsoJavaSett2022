@@ -28,7 +28,7 @@ public class Aeroporto {
 	
 	public void atterraggio(Aereo stato) {
 		a.setStato(StatoAereo.ATTERRATO.toString()); 
-		System.out.println(a.getStato());;
+		System.out.println(a.getStato());
 	}
 	
 	public void decollo(Aereo stato) {
