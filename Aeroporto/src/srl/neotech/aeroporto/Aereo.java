@@ -1,15 +1,18 @@
 package srl.neotech.aeroporto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aereo {
 	
 	private Integer idUnivoco;
 	private Integer orario;
 	private String compagniaAerea;
-	private String modelloAereo;
+	private ModelloAereo modello;
+	private List<Passeggero> passeggeri=new ArrayList<Passeggero>();
 	private Integer velocita;
 	private Integer distanzaDallAereoporto;
-	private String stato;
-	
+	private StatoAereo stato;
 	
 	
 	public Integer getIdUnivoco() {
@@ -30,11 +33,17 @@ public class Aereo {
 	public void setCompagniaAerea(String compagniaAerea) {
 		this.compagniaAerea = compagniaAerea;
 	}
-	public String getModelloAereo() {
-		return modelloAereo;
+	public ModelloAereo getModello() {
+		return modello;
 	}
-	public void setModelloAereo(String modelloAereo) {
-		this.modelloAereo = modelloAereo;
+	public void setModello(ModelloAereo modello) {
+		this.modello = modello;
+	}
+	public List<Passeggero> getPasseggeri() {
+		return passeggeri;
+	}
+	public void setPasseggeri(List<Passeggero> passeggeri) {
+		this.passeggeri = passeggeri;
 	}
 	public Integer getVelocita() {
 		return velocita;
@@ -48,13 +57,18 @@ public class Aereo {
 	public void setDistanzaDallAereoporto(Integer distanzaDallAereoporto) {
 		this.distanzaDallAereoporto = distanzaDallAereoporto;
 	}
-	public String getStato() {
+	public StatoAereo getStato() {
 		return stato;
 	}
-	public void setStato(String stato) {
+	public void setStato(StatoAereo stato) {
 		this.stato = stato;
+	}
+	@Override
+	public String toString() {
+		return "Aereo [idUnivoco=" + idUnivoco + ", orario=" + orario + ", compagniaAerea=" + compagniaAerea
+				+ ", velocita=" + velocita + ", distanzaDallAereoporto=" + distanzaDallAereoporto + ", stato=" + stato + "]";
 	}
 	
 	
-
-}
+	
+	}

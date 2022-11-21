@@ -2,15 +2,21 @@ package srl.neotech.aeroporto;
 
 public class Business extends Passeggero{
 	
-	private Boolean haGiornale;
+	private Boolean hasGiornale;
 
 	
-	public Boolean getHaGiornale() {
-		return haGiornale;
+	public Boolean getHasGiornale() {
+		return hasGiornale;
 	}
 
-	public void setHaGiornale(Boolean haGiornale) {
-		this.haGiornale = haGiornale;
+	public void setHasGiornale(Boolean hasGiornale) {
+		this.hasGiornale = hasGiornale;
 	}
+
+	@Override
+	public String toString() {
+		return "Business [hasGiornale=" + hasGiornale + "]";
+	}
+	
 
 }

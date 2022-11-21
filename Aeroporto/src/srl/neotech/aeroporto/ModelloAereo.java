@@ -1,6 +1,6 @@
 package srl.neotech.aeroporto;
 
-public class ModelloAereo extends Aereo{
+public class ModelloAereo {
 	
 	private String costruttore;
 	private String codiceModello;
@@ -24,6 +24,11 @@ public class ModelloAereo extends Aereo{
 	}
 	public void setCapienzaNumPasseggeri(Integer capienzaNumPasseggeri) {
 		this.capienzaNumPasseggeri = capienzaNumPasseggeri;
+	}
+	@Override
+	public String toString() {
+		return "ModelloAereo [costruttore=" + costruttore + ", codiceModello=" + codiceModello
+				+ ", capienzaNumPasseggeri=" + capienzaNumPasseggeri + "]";
 	}
 	
 	

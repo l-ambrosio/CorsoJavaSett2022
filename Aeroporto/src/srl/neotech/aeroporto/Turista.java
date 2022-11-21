@@ -2,15 +2,20 @@ package srl.neotech.aeroporto;
 
 public class Turista extends Passeggero {
 	
-	private Boolean haAnimale;
+	private Boolean hasAnimale;
 	
 
-	public Boolean getHaAnimale() {
-		return haAnimale;
+	public Boolean getHasAnimale() {
+		return hasAnimale;
 	}
 
-	public void setHaAnimale(Boolean haAnimale) {
-		this.haAnimale = haAnimale;
+	public void setHasAnimale(Boolean hasAnimale) {
+		this.hasAnimale = hasAnimale;
+	}
+
+	@Override
+	public String toString() {
+		return "Turista [hasAnimale=" + hasAnimale + "]";
 	}
 	
 	

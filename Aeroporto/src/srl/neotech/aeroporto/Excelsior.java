@@ -2,15 +2,20 @@ package srl.neotech.aeroporto;
 
 public class Excelsior extends Passeggero {
 
-	private Boolean haChampagne;
+	private Boolean hasChampagne;
 
 	
-	public Boolean getHaChampagne() {
-		return haChampagne;
+	public Boolean getHasChampagne() {
+		return hasChampagne;
 	}
 
-	public void setHaChampagne(Boolean haChampagne) {
-		this.haChampagne = haChampagne;
+	public void setHasChampagne(Boolean hasChampagne) {
+		this.hasChampagne = hasChampagne;
+	}
+
+	@Override
+	public String toString() {
+		return "Excelsior [hasChampagne=" + hasChampagne + "]";
 	}
 	
 	

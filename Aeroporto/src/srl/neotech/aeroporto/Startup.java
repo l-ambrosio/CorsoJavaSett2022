@@ -2,6 +2,9 @@ package srl.neotech.aeroporto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+import com.github.javafaker.Faker;
 
 
 public class Startup {
@@ -10,42 +13,125 @@ public class Startup {
 		// TODO Auto-generated method stub
 		
 		
-		
-		
-		List<Aereo> aereiInPartenza=new ArrayList<Aereo>();
-		List<Aereo> aereiInAvvicinamento=new ArrayList<Aereo>();
-		
 		Aeroporto aeroporto=new Aeroporto();
-		Aereo a=new Aereo();
-		Passeggero pass=new Passeggero();
+		Random rnd=new Random();
+		Faker faker=new Faker();
 		
-		for(int i=0;i<100;i++) {
-			Aereo unAereoInPartenza=new Aereo();
-			aereiInPartenza.add(unAereoInPartenza);
-			
-		}
 		
-		System.out.println("Gli aerei in partenza sono: "+aereiInPartenza.size());
-		
-
+		//AEREI IN AVVICINAMENTO
 		for(int i=0;i<200;i++) {
-			Aereo unAereoInAvvicinamento=new Aereo();
-			aereiInAvvicinamento.add(unAereoInAvvicinamento);
+			Aereo a=new Aereo();
+			a.setDistanzaDallAereoporto(rnd.nextInt(100));
+			a.setVelocita(rnd.nextInt(1,100));
+			a.setIdUnivoco(i);
+			a.setCompagniaAerea(faker.company().name());
+			a.setOrario(rnd.nextInt(500));
+			a.setStato(StatoAereo.IN_AVVICINAMENTO);
+			
+			Integer numPasseggeri=rnd.nextInt(200);
+			ModelloAereo modello=new ModelloAereo();
+			modello.setCapienzaNumPasseggeri(numPasseggeri);
+			modello.setCostruttore(faker.company().name());
+			modello.setCodiceModello(faker.code().isbn13());
+			a.setModello(modello);
+			
+		
+			for(int j=0;j<modello.getCapienzaNumPasseggeri();j++) {
+				Passeggero p=null;
+				Integer sceltaTipoPasseggero=rnd.nextInt(2);
+				if(sceltaTipoPasseggero==0) p=new Excelsior();
+				if(sceltaTipoPasseggero==1) p=new Business();
+				if(sceltaTipoPasseggero==2) p=new Turista();
+				
+				p.setEta(rnd.nextInt(100));
+				p.setIdUnivoco(j);
+				Integer sceltaMF=rnd.nextInt(1);
+				if(sceltaMF==0) p.setMF('M');
+				if(sceltaMF==1) p.setMF('F');
+				p.setHasBagagli(false);
+				p.setHasFiore(false);
+				a.getPasseggeri().add(p);
+			}
+			aeroporto.getAereiInAvvicinamento().add(a);
 		}
 		
-		System.out.println("Gli aerei in avvicinamento sono: "+aereiInAvvicinamento.size());
-		
-		for(int i=0;i<1000;i++) {
-			Passeggero p=new Passeggero();
-			aeroporto.getPasseggeri().add(p);
+		for(Aereo a:aeroporto.getAereiInAvvicinamento()) {
+			System.out.println(a);
 		}
 		
-		System.out.println("I passeggeri pronti per il check in sono: "+aeroporto.getPasseggeri().size());
+		//AEREI IN PARTENZA
+		for(int i=0;i<100;i++) {
+			Aereo a=new Aereo();
+			a.setDistanzaDallAereoporto(0);
+			a.setVelocita(0);
+			a.setIdUnivoco(i);
+			a.setCompagniaAerea(faker.company().name());
+			a.setOrario(rnd.nextInt(500));
+			a.setStato(StatoAereo.IN_PARTENZA);
+			
+			Integer numPasseggeri=rnd.nextInt(200);
+			ModelloAereo modello=new ModelloAereo();
+			modello.setCapienzaNumPasseggeri(numPasseggeri);
+			modello.setCostruttore(faker.company().name());
+			modello.setCodiceModello(faker.code().isbn13());
+			a.setModello(modello);
+			
+			for(int j=0;j<modello.getCapienzaNumPasseggeri();j++) {
+				Passeggero p=null;
+				Integer sceltaTipoPasseggero=rnd.nextInt(2);
+				if(sceltaTipoPasseggero==0) p=new Excelsior();
+				if(sceltaTipoPasseggero==1) p=new Business();
+				if(sceltaTipoPasseggero==2) p=new Turista();
+				
+				p.setEta(rnd.nextInt(100));
+				p.setIdUnivoco(j);
+				Integer sceltaMF=rnd.nextInt(1);
+				if(sceltaMF==0) p.setMF('M');
+				if(sceltaMF==1) p.setMF('F');
+				p.setHasBagagli(false);
+				p.setHasFiore(false);
+				a.getPasseggeri().add(p);
+			}
+			aeroporto.getAereiInPartenza().add(a);
+		}
 		
-		aeroporto.atterraggio(a);
-		aeroporto.decollo(a);
-		aeroporto.checkIn(a, pass);
+		for(Aereo a:aeroporto.getAereiInPartenza()) {
+			System.out.println(a);
 	
+		}
+		
+		//PASSEGGERI PRONTI PER IL CHECK-IN
+		for(int i=0;i<1000;i++) {
+			Passeggero p=null;
+			Integer sceltaTipoPasseggero=rnd.nextInt(2);
+			if(sceltaTipoPasseggero==0) p=new Excelsior();
+			if(sceltaTipoPasseggero==1) p=new Business();
+			if(sceltaTipoPasseggero==2) p=new Turista();
+			
+			p.setEta(rnd.nextInt(100));
+			p.setIdUnivoco(i);
+			Integer sceltaMF=rnd.nextInt(1);
+			if(sceltaMF==0) p.setMF('M');
+			if(sceltaMF==1) p.setMF('F');
+			p.setHasBagagli(true);
+			p.setHasFiore(false);
+			aeroporto.getPasseggeriInAttesa().add(p);
+		}
+		
+		for(Passeggero p:aeroporto.getPasseggeriInAttesa()) {
+			System.out.println(p);
+		}
+		
+		//ATTERRAGGIO AEREI
+		for(Aereo a:aeroporto.getAereiInAvvicinamento()) {
+			aeroporto.atterraggio(a);
+		}
+		
+		//PARTENZA AEREI
+		for(Aereo a:aeroporto.getAereiInPartenza()) {
+			aeroporto.decollo(a);
+		}
+		
 	}
 
 }
