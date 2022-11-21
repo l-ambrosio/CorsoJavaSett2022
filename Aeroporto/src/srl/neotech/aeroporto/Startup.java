@@ -63,7 +63,7 @@ public class Startup {
 		for(int i=0;i<100;i++) {
 			Aereo a=new Aereo();
 			a.setDistanzaDallAereoporto(0);
-			a.setVelocita(0);
+			a.setVelocita(rnd.nextInt(1,100));
 			a.setIdUnivoco(i);
 			a.setCompagniaAerea(faker.company().name());
 			a.setOrario(rnd.nextInt(500));
