@@ -60,7 +60,7 @@ public class Aeroporto {
 	}
 
 	public Aereo decollo(Aereo a) {
-		while(a.getDistanzaDallAereoporto()<=0) {
+		while(a.getDistanzaDallAereoporto()<raggioDiAzione) {
 			Integer partenza=a.getDistanzaDallAereoporto()+a.getVelocita();
 			a.setDistanzaDallAereoporto(partenza);
 		}
