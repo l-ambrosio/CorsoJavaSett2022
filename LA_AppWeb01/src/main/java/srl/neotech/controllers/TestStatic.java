@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TestStatic {
 
-	@GetMapping(value="testPaginaStatic01")
+	@GetMapping(value="testPaginaStatic")
 	public String testPaginaStatic() {
 		return "static01";
 	}
