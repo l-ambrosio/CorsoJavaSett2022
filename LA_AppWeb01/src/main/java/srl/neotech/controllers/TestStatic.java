@@ -10,4 +10,10 @@ public class TestStatic {
 	public String testPaginaStatic() {
 		return "static01";
 	}
+	
+	@GetMapping(value="test")
+	public String testPagina() {
+		return "test";
+	}
+	
 }
