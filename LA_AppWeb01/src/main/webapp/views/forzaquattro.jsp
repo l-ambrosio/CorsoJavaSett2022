@@ -9,7 +9,20 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 	type="text/javascript"></script>
     <script src="static/js/forzaquattro.js"></script>
+    <style>
+table {
+  border: 2px;
+  width:50%;
+  height:450px;
+}
+
+tr, td {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+</style>
 </head>
+
 <body>
     <div class="clearfix">
         <div class="row">
@@ -20,7 +33,7 @@
  <div class="row">
         <div class="col-md-12">
         <br><br>
-    <table border="2" width="50%" height="450px" align="center">
+    <table align="center">
         <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
         <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
         <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -33,25 +46,24 @@
     <div class="row">
     <div class="col-md-12" align="center">
     <br><br>
-    <button type="button" class="btn btn-danger">i</button>
-    <button type="button" class="btn btn-danger">i</button>
-    <button type="button" class="btn btn-danger">i</button>
-    <button type="button" class="btn btn-danger">i</button>
-    <button type="button" class="btn btn-danger">i</button>
-    <button type="button" class="btn btn-danger">i</button>
-    <button type="button" class="btn btn-danger">i</button>
+    <button type="button" class="btn btn-danger"></button>
+    <button type="button" class="btn btn-danger"></button>
+    <button type="button" class="btn btn-danger"></button>
+    <button type="button" class="btn btn-danger"></button>
+    <button type="button" class="btn btn-danger"></button>
+    <button type="button" class="btn btn-danger"></button>
     </div>
     </div>
     <div class="row">
     <div class="col-md-12" align="center">
     <br>
-    <button type="button" class="btn btn-warning">i</button>
-    <button type="button" class="btn btn-warning">i</button>
-    <button type="button" class="btn btn-warning">i</button>
-    <button type="button" class="btn btn-warning">i</button>
-    <button type="button" class="btn btn-warning">i</button>
-    <button type="button" class="btn btn-warning">i</button>
-    <button type="button" class="btn btn-warning">i</button>
+    <button type="button" class="btn btn-warning"></button>
+    <button type="button" class="btn btn-warning"></button>
+    <button type="button" class="btn btn-warning"></button>
+    <button type="button" class="btn btn-warning"></button>
+    <button type="button" class="btn btn-warning"></button>
+    <button type="button" class="btn btn-warning"></button>
+    <button type="button" class="btn btn-warning"></button>
     </div>
     </div>
 </div>
