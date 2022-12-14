@@ -1,0 +1,20 @@
+package srl.neotech.test;
+
+import org.springframework.stereotype.Component;
+
+@Component
+	public class Motore {
+		private Integer cilindrata;
+
+		public Integer getCilindrata() {
+			return cilindrata;
+		}
+
+		public void setCilindrata(Integer cilindrata) {
+			this.cilindrata = cilindrata;
+		}
+		
+		public void scriviMessaggio() {
+			System.out.println("Ciao!!");
+		}
+}
