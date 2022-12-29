@@ -16,6 +16,8 @@ public class MusicController {
 		
 		@Autowired //voglio usare 
 		Automobile auto;
+		
+		@Autowired
 		Albero albero;
 		
 		
