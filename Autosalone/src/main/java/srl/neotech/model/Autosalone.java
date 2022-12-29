@@ -57,7 +57,7 @@ public class Autosalone {
 		terzaAuto.setTarga("EF723RT");
 		terzaAuto.setColore(EColore.NERO);
 		terzaAuto.setAlimentazione(EAlimentazione.DIESEL);
-		terzaAuto.setAnnoCostruzione("2020");
+		terzaAuto.setAnnoCostruzione("2022");
 		terzaAuto.setCostruttore(ECostruttore.PORSCHE);
 		terzaAuto.setModello("Macan");
 		terzaAuto.setCosto(new BigDecimal("100670.50"));
@@ -76,7 +76,7 @@ public class Autosalone {
 		quartaAuto.setTarga("GT589NP");
 		quartaAuto.setColore(EColore.BIANCO);
 		quartaAuto.setAlimentazione(EAlimentazione.DIESEL);
-		quartaAuto.setAnnoCostruzione("2020");
+		quartaAuto.setAnnoCostruzione("2019");
 		quartaAuto.setCostruttore(ECostruttore.LAMBORGHINI);
 		quartaAuto.setModello("Huracan");
 		quartaAuto.setCosto(new BigDecimal("22030.20"));
