@@ -27,7 +27,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="index3.html" class="nav-link">Rimuovi Automobili</a>
       </li>
     </ul>
 
@@ -42,7 +42,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a  class="brand-link">
-      <span class="brand-text font-weight-light">neotech</span>
+      <span class="brand-text font-weight-light">Autosalone</span>
     </a>
 
     <!-- Sidebar -->
@@ -74,7 +74,7 @@
               <p>Aggiungi Auto</p>
             </a>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <a href="rimuoviAuto" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Rimuovi Auto</p>
@@ -106,11 +106,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Aggiungi automobile</h1>
+            <h1>Lista Automobili</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="home">Home</a></li>
             </ol>
           </div>
         </div>
@@ -121,53 +121,31 @@
     <section class="content">
     <div class="clearfix">
        <div class="row">
-          <div class="col-md-4"></div>
-          <div class="col-md-4">
-          
-          <form id="auto" action="add" method="Post">
-          
-          <div class= "form-group">
-          <label>ID</label>
-          <input id="id" class= "form-control" name="id" type="text" value="">
+          <div class="md-col-12 text-center" >
+              <table width="100%" class="table table-bordered table-hover dataTable dtr-inline">
+              <thead>
+              <td>Id</td>
+              <td>Targa</td>
+              <td>Costruttore</td>
+              <td>Modello</td>
+              <td>Anno</td>
+              <td>Costo</td>
+              <td>Azioni</td>
+              </thead>
+             <c:forEach var="auto" items="${listaAuto}" >
+                        <tr>
+                        <td>${auto.id}</td>
+                        <td>${auto.targa}</td>
+                        <td>${auto.costruttore}</td>
+                        <td>${auto.modello}</td>
+                        <td>${auto.annoCostruzione}</td>
+                        <td>${auto.costo}</td>
+                        <td><a href='rimuoviAuto?id=${auto.id}'><button type="button" class="btn btn-danger">Rimuovi</button></a></td>
+                        </tr>
+              </c:forEach>
+              
+              </table>
           </div>
-          
-          <div class= "form-group">
-          <label>TARGA </label>
-          <input id="targa" class= "form-control" name="targa" type="text" value="">
-		  </div>
-          
-          <div class= "form-group">
-          <label>COSTRUTTORE </label>
-          <select id="costruttore" name="costruttore" class="form-control select2bs4 select2-hidden-accessible">
-	      <option value="BUGATTI">BUGATTI</option>
-	      <option value="FERRARI">FERRARI</option>
-	      <option value="PORSCHE">PORSCHE</option>
-	      <option value="LAMBORGHINI">LAMBORGHINI</option>
-	      <option value="MASERATI">MASERATI</option>
-		  </select>
-          </div>
-          
-           <div class= "form-group">
-          <label>MODELLO</label>
-          <input id="modello" class= "form-control" name="modello" type="text" value="">
-		  </div>
-          
-		   <div class= "form-group">
-          <label>ANNO </label>
-          <input id="annoCostruzione" class= "form-control" name="annoCostruzione" type="text" value="">
-		  </div>
-          
-           <div class= "form-group">
-          <label>COSTO</label>
-          <input id="costo" class= "form-control" name="costo" type="text" value="">
-		  </div>
-		  
-		  <button class="btn btn-primary" type="submit" id="sottomettiForm">AGGIUNGI</button>
-          
-          </form>
-          </div>
-          
-          <div class="col-md-4"></div>
        
        </div>
     

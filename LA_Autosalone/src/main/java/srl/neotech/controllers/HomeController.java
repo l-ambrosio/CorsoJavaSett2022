@@ -15,7 +15,7 @@ public class HomeController {
 	@Autowired
 	HomeService homeService;
 	
-    //Rotta per la home
+	
     @GetMapping(value="home")
     public String home(ModelMap modelMap) {
         String url=homeService.getImmagine();

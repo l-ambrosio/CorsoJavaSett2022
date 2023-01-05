@@ -108,8 +108,6 @@ public class Autosalone {
 		terzaAuto.getAccessori().add(tettuccio);
 		automobili.add(quintaAuto);
 		
-		
-		
 	}
 
 	
@@ -120,8 +118,6 @@ public class Autosalone {
 	public void setAutomobili(ArrayList<Automobile> automobili) {
 		this.automobili = automobili;
 	}
-	
-	
 	
 	
 }

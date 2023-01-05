@@ -75,6 +75,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="rimuoviAuto" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>Rimuovi Auto</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="cercaAuto" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Cerca Auto</p>
@@ -134,7 +140,8 @@
                         <td>${auto.modello}</td>
                         <td>${auto.annoCostruzione}</td>
                         <td>${auto.costo}</td>
-                        <td>pulsante</td>
+                        <td><a href="dettaglioAuto"><button class="btn btn-primary" type="button">Dettagli</button></a>
+                        <a href='rimuoviAuto?id=${auto.id}'><button class="btn btn-danger" type="button">Rimuovi</button></a></td>
                         </tr>
               </c:forEach>
               
