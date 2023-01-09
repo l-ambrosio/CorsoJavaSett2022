@@ -109,7 +109,7 @@ public class Autosalone {
 		automobili.add(quintaAuto);
 		
 	}
-
+	
 	
 	public ArrayList<Automobile> getAutomobili() {
 		return automobili;
@@ -118,6 +118,7 @@ public class Autosalone {
 	public void setAutomobili(ArrayList<Automobile> automobili) {
 		this.automobili = automobili;
 	}
+	
 	
 	
 }

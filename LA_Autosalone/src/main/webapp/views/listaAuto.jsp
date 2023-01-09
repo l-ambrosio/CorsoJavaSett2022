@@ -63,7 +63,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="listAuto" class="nav-link">
+            <a href="listaAuto" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Lista Automobili</p>
             </a>
@@ -72,12 +72,6 @@
             <a href="aggiungiAuto" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Aggiungi Auto</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="rimuoviAuto" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Rimuovi Auto</p>
             </a>
           </li>
           <li class="nav-item">
@@ -140,7 +134,7 @@
                         <td>${auto.modello}</td>
                         <td>${auto.annoCostruzione}</td>
                         <td>${auto.costo}</td>
-                        <td><a href="dettaglioAuto"><button class="btn btn-primary" type="button">Dettagli</button></a>
+                        <td><a href="dettaglioAuto?id=${auto.id}"><button class="btn btn-primary" type="button">Dettaglio</button></a>
                         <a href='rimuoviAuto?id=${auto.id}'><button class="btn btn-danger" type="button">Rimuovi</button></a></td>
                         </tr>
               </c:forEach>

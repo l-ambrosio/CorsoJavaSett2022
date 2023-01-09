@@ -74,14 +74,8 @@
               <p>Aggiungi Auto</p>
             </a>
           </li>
-           <li class="nav-item">
-            <a href="rimuoviAuto" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Rimuovi Auto</p>
-            </a>
-          </li>
           <li class="nav-item">
-            <a href="insertData" class="nav-link">
+            <a href="cercaAuto" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Cerca Auto</p>
             </a>
@@ -120,24 +114,20 @@
     <section class="content">
     <div class="clearfix">
        <div class="row">
-          <div class="col-md-2" >
-          <div class= "form-group">
-          <label>ID</label>
-          <input id="id" class= "form-control" name="id" type="text" value="${auto.id}">
+          <div class="col-md-2">
+          <h3>DETTAGLIO</h>
           </div>
           </div>
-          <div class="col-md-5"></div>
-          <div class="col-md-5"></div>
-       </div>
-    </div>
-        <h3>Dettaglio Auto</h3>
         
     <div class="container">
     <div class="row">
-
-    <div class="col-md-4">
+    <div class="col-md-6">
+    
     <div class= "form-group">
-  
+          <label>ID</label>
+          <input id="id" class= "form-control" name="id" type="text" value="${auto.id}">
+          </div>
+    <div class= "form-group">
           <label>TARGA</label>
           <input id="targa" class= "form-control" name="targa" type="text" value="${auto.targa}">
           </div>
@@ -151,17 +141,15 @@
           </div>
     </div>
     
-     <div class="col-md-4">
+     <div class="col-md-6">
      <div class= "form-group">
           <label>COSTRUTTORE</label>
           <input id="costruttore" class= "form-control" name="costruttore" type="text" value="${auto.costruttore}">
           </div>
           <div class= "form-group">
           <label>ANNO</label>
-          <input id="annoCostruzione" class= "form-control" name="anno" type="text" value="${auto.annoCostruzione}">
+          <input id="annoCostruzione" class= "form-control" name="annoCostruzione" type="text" value="${auto.annoCostruzione}">
           </div>
-     </div>
-      <div class="col-md-4">
        <div class= "form-group">
           <label>MODELLO</label>
           <input id="modello" class= "form-control" name="modello" type="text" value="${auto.modello}">
@@ -170,24 +158,7 @@
           <label>COLORE</label>
           <input id="colore" class= "form-control" name="colore" type="text" value="${auto.colore}">
           </div>
-      </div>
-    </div>
-    </div>
-    
-  <h3>ACCESSORI</h3>
-  <div class="container">
-  <div class="row">
-  <div class="col-md-4">
-    <table class="table table-bordered table-hover dataTable dtr-inline">
-              <thead>
-              <td>Id</td>
-              <td>Classe</td>
-              <td>Tipologia</td>
-              <td>Descrizione</td>
-              <td>Costo</td>
-              </thead>
-              <tbody>
-               <c:forEach var="accessori" items="${listaccessori}" >
+          <c:forEach var="auto" items="${listaAccessori}" >
                         <tr>
                         <td>${accessori.id}</td>
                         <td>${accessori.classe}</td>
@@ -196,14 +167,11 @@
                         <td>${accessori.costo}</td>
                         </tr>
               </c:forEach>
-              </tbody>
-              </table>
-              </div>
-  <div class="col-md-4"></div>
-  <div class="col-md-4"></div>
+      </div>
+    </div>
+    </div>
+    </div>
   
-  </div>
-  </div>
 
     </section>
     <!-- /.content -->

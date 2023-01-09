@@ -75,12 +75,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="rimuoviAuto" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Rimuovi Auto</p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="cercaAuto" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Cerca Auto</p>
