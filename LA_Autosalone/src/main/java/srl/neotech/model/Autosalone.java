@@ -110,6 +110,17 @@ public class Autosalone {
 		
 	}
 	
+	public Automobile dettaglioAuto(String id) {
+		for (Automobile auto: automobili) {
+			if (auto.getId().equals(id)) {
+				return auto;
+			}
+		}
+		return null;
+	}
+	
+	
+	
 	
 	public ArrayList<Automobile> getAutomobili() {
 		return automobili;

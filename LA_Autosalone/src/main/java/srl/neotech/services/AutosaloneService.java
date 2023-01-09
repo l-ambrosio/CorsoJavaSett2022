@@ -25,14 +25,6 @@ public class AutosaloneService {
 		autoSalone.getAutomobili().remove(indice);
 	}
 	
-
-	public void dettaglioAuto(String id) {
-		for (Automobile auto: autoSalone.getAutomobili()) {
-			if (auto.getId().equals(id)) {
-			auto.getAccessori();
-			}
-		}
-	}
 	
 	public List<Automobile> ricercaAutomobili(CercaAutoRequest request){
 	    List<Automobile> autoTornate=new ArrayList<Automobile>();

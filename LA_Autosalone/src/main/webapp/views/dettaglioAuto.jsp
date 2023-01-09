@@ -128,7 +128,7 @@
           <input id="id" class= "form-control" name="id" type="text" value="${auto.id}">
           </div>
     <div class= "form-group">
-          <label>TARGA</label>
+          <label>TARGA</label>  
           <input id="targa" class= "form-control" name="targa" type="text" value="${auto.targa}">
           </div>
            <div class= "form-group">
@@ -158,21 +158,43 @@
           <label>COLORE</label>
           <input id="colore" class= "form-control" name="colore" type="text" value="${auto.colore}">
           </div>
-          <c:forEach var="auto" items="${listaAccessori}" >
-                        <tr>
-                        <td>${accessori.id}</td>
-                        <td>${accessori.classe}</td>
-                        <td>${accessori.tipologia}</td>
-                        <td>${accessori.descrizione}</td>
-                        <td>${accessori.costo}</td>
-                        </tr>
-              </c:forEach>
+          
       </div>
     </div>
     </div>
+    <h4><strong>ACCESSORI</strong></h4>
+
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<table class="table table-bordered table-hover dataTable dtr-inline">
+<thead>
+<td>Id</td>
+<td>Classe</td>
+<td>Tipologia</td>
+<td>Descrizione</td>
+<td>Costo</td>
+</thead>
+<tbody>
+<c:forEach var="accessori" items="${listaccessori}">
+<tr>
+<td>${accessori.id}</td>
+<td>${accessori.classe}</td>
+<td>${accessori.tipologia}</td>
+<td>${accessori.descrizione}</td>
+<td>${accessori.costo}</td>
+</tr>
+</c:forEach>
+</tbody>
+</table>
+</div>
+<div class="col-md-4"></div>
+<div class="col-md-4"></div>
+</div>
+    
     </div>
   
-
+</div>
     </section>
     <!-- /.content -->
   </div>

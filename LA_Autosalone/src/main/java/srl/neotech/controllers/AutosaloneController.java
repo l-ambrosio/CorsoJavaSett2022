@@ -61,12 +61,9 @@ public class AutosaloneController {
 	
 	@GetMapping(value="dettaglioAuto")
 	public String dettaglioAuto(@RequestParam("id") String id, ModelMap modelMap) {
-		autosaloneService.dettaglioAuto(id);
-		modelMap.addAttribute("auto",autoSalone.getAutomobili().get(0).getId());
-		modelMap.addAttribute("auto",autoSalone.getAutomobili().get(1));
-		modelMap.addAttribute("auto",autoSalone.getAutomobili().get(2));
-		modelMap.addAttribute("auto",autoSalone.getAutomobili().get(3));
-		modelMap.addAttribute("auto",autoSalone.getAutomobili().get(4));
+		Automobile auto= autoSalone.dettaglioAuto(id);
+		modelMap.addAttribute("auto", auto);
+		modelMap.addAttribute("listaccessori",auto.getAccessori());
 	        return "dettaglioAuto";
 	}
 	
