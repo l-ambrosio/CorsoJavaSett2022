@@ -1,19 +1,25 @@
-package srl.neotech.model;
+package srl.neotech.dao;
 
-import java.awt.GraphicsDevice.WindowTranslucency;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-
 import org.springframework.stereotype.Component;
 
+import srl.neotech.model.Accessorio;
+import srl.neotech.model.Automobile;
+import srl.neotech.model.EAlimentazione;
+import srl.neotech.model.EClasseAccessorio;
+import srl.neotech.model.EColore;
+import srl.neotech.model.ECostruttore;
+import srl.neotech.model.ETipologiaAccessorio;
+
 @Component
-public class Autosalone {
+public class AutosaloneDAO {
 	
-	private ArrayList<Automobile> automobili=new ArrayList<Automobile>();
+private ArrayList<Automobile> automobili=new ArrayList<Automobile>();
 	
 	
-	public Autosalone() {
+	public void Autosalone() {
 		
 		Automobile primaAuto=new Automobile();
 		primaAuto.setId("1");
@@ -116,7 +122,6 @@ public class Autosalone {
 				return auto;
 			}
 		}
-		
 		return null;
 	}
 	

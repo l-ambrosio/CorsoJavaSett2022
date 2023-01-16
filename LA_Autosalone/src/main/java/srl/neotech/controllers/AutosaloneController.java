@@ -80,7 +80,7 @@ public class AutosaloneController {
 	@PostMapping("searchAuto")   
 	public String cercaAutoPage(@ModelAttribute("requestCercaAuto") CercaAutoRequest request, ModelMap modelMap) { 
 		List<Automobile> autoTrovate=autosaloneService.ricercaAutomobili(request);
-		modelMap.addAttribute("listaAutoTrovate",autoTrovate);
+		modelMap.addAttribute("listaAuto",autoTrovate);
 		return "cercaAuto";
 	}
 	

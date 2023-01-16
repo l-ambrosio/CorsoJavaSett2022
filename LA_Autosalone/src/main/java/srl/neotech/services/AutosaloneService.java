@@ -32,21 +32,27 @@ public class AutosaloneService {
 	    
 	    if(request.getTarga()!=null) {
 	    	for(Automobile auto: autoSalone.getAutomobili()) {
-	    		if(auto.getTarga().equals(auto.getTarga()))
+	    		if(auto.getTarga().equals(request.getTarga()))
 	    			autoTornate.add(auto);
 	    	}
-	    	//ciclate la lista e se trovate una auto con la stessa targa la mettete dentro autoTrovate
 	    }
 	    
 	    if(!request.getColore().equals("0")) {
-	    	//ciclate la lista e se trovate una auto con lo stesso colore la mettete dentro autoTrovate
+	    	for(Automobile auto: autoSalone.getAutomobili()) {
+	    		if(auto.getColore().equals(request.getColore()))
+	    				autoTornate.add(auto);
+	    	}
 	    }
 	    
 	    if(!request.getCostruttore().equals("0")) {
-	    	//ciclate la lista e se trovate una auto con lo stesso colore la mettete dentro autoTrovate
+	    	for(Automobile auto: autoSalone.getAutomobili()) {
+	    		if(auto.getCostruttore().equals(request.getCostruttore()))
+	    			autoTornate.add(auto);
+	    	}
 	    }
+	    
 	    return autoTornate;
+	    
 		}
-
 
 }
