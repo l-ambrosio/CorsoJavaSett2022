@@ -2,7 +2,7 @@ package srl.neotech.requestresponse;
 
 import srl.neotech.model.Automobile;
 
-public class GetAutomobileResponse {
+public class GetAutomobileResponse extends ResponseBase{
 	
 	private Automobile auto;
 
