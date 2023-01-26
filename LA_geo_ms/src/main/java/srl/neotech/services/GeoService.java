@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import srl.neotech.dao.GeoDAO;
 import srl.neotech.model.Comune;
+import srl.neotech.model.ComuneAutocomplete;
 import srl.neotech.model.Provincia;
 import srl.neotech.model.Regione;
 
@@ -30,5 +31,9 @@ public class GeoService {
 		return geoDao.getListaProvince(idRegione);
 	}
 	
+	
+	public List<ComuneAutocomplete> getComuneAutoComplete(String txt){
+		return geoDao.getComuneAutoComplete(txt);
+	}
 	
 }

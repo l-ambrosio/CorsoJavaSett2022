@@ -14,6 +14,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import srl.neotech.model.Comune;
+import srl.neotech.model.ComuneAutocomplete;
 import srl.neotech.model.Elemento;
 import srl.neotech.model.Provincia;
 import srl.neotech.model.Regione;
@@ -70,6 +71,24 @@ public class GeoRepository {
         );
 		return regioni;
 	}
+	
+	public List<ComuneAutocomplete> getComunemAutoComplete(String txt){
+		//Parametri da passsare alla query
+	    MapSqlParameterSource params=new MapSqlParameterSource();
+		List<ComuneAutocomplete> comuni=new ArrayList<ComuneAutocomplete>();
+	    params.addValue("text", txt+"%");
+		//Query
+		String query="select comune_id,title from comune where provincia like :text";
+		comuni=jdbcTemplate.query(
+						query,
+		                params,
+		                (rs, rowNum) ->new ComuneAutocomplete(rs.getString("comune_id"),rs.getString("provincia"))
+		        );
+      return comuni;
+}
+	
+	
+	
 	
 }
 	//public void addElemento(Elemento elemento) {

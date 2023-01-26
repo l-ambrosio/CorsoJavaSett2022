@@ -58,25 +58,10 @@
 						<li class="nav-item"><a href="#" class="nav-link"> <i
 								class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
-									GetDatas <i class="right fas fa-angle-left"></i>
+									Home <i class="right fas fa-angle-left"></i>
 								</p>
 						</a>
-							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="list" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
-										<p>getList</p>
-								</a></li>
-								<li class="nav-item"><a href="count" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>getCount</p>
-								</a></li>
-							</ul></li>
-						<li class="nav-item"><a href="insertData" class="nav-link">
-								<i class="nav-icon fas fa-th"></i>
-								<p>
-									Insert data <span class="right badge badge-danger">New</span>
-								</p>
-						</a></li>
+							
 					</ul>
 				</nav>
 				<!-- /.sidebar-menu -->
@@ -91,12 +76,12 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1>Blank Page</h1>
+							<h1>METEO</h1>
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">Blank Page</li>
+								<li class="breadcrumb-item active">Meteo</li>
 							</ol>
 						</div>
 					</div>
@@ -105,58 +90,44 @@
 			</section>
 			<div class="container">
 				<div class="row">
+				<div class="col-sm-6">
 					<div class="form-group text-center">
 						<label>REGIONE:</label><select id="#reg_select"
 							class="form-control select2 select2-hidden-accessible"></select><label>PROVINCIA:</label><select
-							class="form-control select2 select2-hidden-accessible"></select><label>COMUNE:</label><select
+							id="#pro_select" class="form-control select2 select2-hidden-accessible"></select><label>COMUNE:</label><select
 							class="form-control select2 select2-hidden-accessible"></select>
+				<div class="rox-sm-6">
+				</div>
+				</div>
 					</div>
 				</div>
 			</div>
-			<!-- Main content -->
-			<section class="content">
+		<section class="content">
 
-				<!-- Default box -->
-				<div class="card">
-					<div class="card-header">
-						<h3 class="card-title">Title</h3>
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Comune</h3>
 
-						<div class="card-tools">
-							<button type="button" class="btn btn-tool"
-								data-card-widget="collapse" title="Collapse">
-								<i class="fas fa-minus"></i>
-							</button>
-							<button type="button" class="btn btn-tool"
-								data-card-widget="remove" title="Remove">
-								<i class="fas fa-times"></i>
-							</button>
-						</div>
-					</div>
-					<div class="card-body">
-						WebTemplate: <a href="https://adminlte.io/themes/v3/">AdminLTE
-							3.0</a><br></br> H2 console: <a
-							href="http://localhost:8080/h2-console">console</a> <br></br>
-						.jdbc url: jdbc:h2:file:/h2/db.sql <br></br> .user/pwd:sa/password
-						<br></br> data From BackEnd:
-						<c:out value="${id}" />
-					</div>
-					<!-- /.card-body -->
-					<div class="card-footer">Footer</div>
-					<!-- /.card-footer-->
-				</div>
-				<!-- /.card -->
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+        <!-- OGGETTO AUTOCOMPLETE -->
+         <input id="comuni" name="comuni" class="form-control basicAutoComplete" type="text" autocomplete="off">
+         
+        </div>
+        
 
-			</section>
-			<!-- /.content -->
-		</div>
-		<!-- /.content-wrapper -->
-
-		<footer class="main-footer">
-			<div class="float-right d-none d-sm-block">
-				<a href="www.neotech.srl">www.neotech.srl</a>
-			</div>
-			<strong>template</strong>
-		</footer>
+    </section>
+    <!-- /.content -->
+  </div>
 
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
@@ -169,6 +140,7 @@
 	<!-- jQuery -->
 	<script src="static/js/plugins/jquery/jquery.min.js"
 		type="text/javascript"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<!-- Bootstrap 4 -->
 	<script src="static/js/plugins/bootstrap/js/bootstrap.bundle.min.js"
 		type="text/javascript"></script>
@@ -177,12 +149,39 @@
 	<!-- Demo Template -->
 	<script src="static/js/fireAjax.js" type="text/javascript"></script>
 	<script src="static/js/demoTemplate.js" type="text/javascript"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	
+
 <script>
+
+$("#comuni").autocomplete({
+    source: function( request, response ) {
+      $.ajax({
+        url: "http://localhost:8080/LA_geo_ms/getComuneAutocomplete?text="+request.term,
+        dataType: "json",
+        
+        success: function( data ) {
+          response( data.simpleData );
+        }
+      });
+    },
+    minLength: 3,
+    open: function() {
+      $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+    },
+    close: function() {
+      $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+    }
+  });
+
+
+
+
+
+
 $(document).ready(function(){
     $("#btnPrevisioni").prop("disabled", true);
     var listaReg;
-    listaReg=fire_ajax_get("http://localhost:8080/LA_geo_ms/listaRegioni");
+    listaReg=fire_ajax_get("http://localhost:8080/LA_geo_ms/getListaRegioni");
     listaReg.regioni.forEach(function(regione) {
         $("#reg_select").append(new Option(regione.nome, regione.id));
     });
@@ -192,7 +191,7 @@ $("#reg_select").change(function(){
 	    var listaProv;
 	    $("#pro_select").empty();
 	    $("#pro_select").append(new Option("Seleziona una provincia", null));
-	    listaProv=fire_ajax_get("http://localhost:8080/FG_Geo_1.0.0_ms/listaProvince?idReg="+idReg)
+	    listaProv=fire_ajax_get("http://localhost:8080/LA_geo_ms/getListaProvince?idRegione="+idRegione)
 	    listaProv.province.forEach(function(provincia) {
 	        $("#pro_select").append(new Option(provincia.nome, provincia.sigla));
 	    });
