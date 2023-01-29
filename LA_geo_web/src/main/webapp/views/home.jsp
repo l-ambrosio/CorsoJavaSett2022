@@ -92,10 +92,18 @@
 				<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group text-center">
-						<label>REGIONE:</label><select id="#reg_select"
-							class="form-control select2 select2-hidden-accessible"></select><label>PROVINCIA:</label><select
-							id="#pro_select" class="form-control select2 select2-hidden-accessible"></select><label>COMUNE:</label><select
-							class="form-control select2 select2-hidden-accessible"></select>
+						<label>REGIONE:</label><select id="reg_select"
+							class="form-control select2 select2-hidden-accessible">
+							<option></option></select>
+							<label>PROVINCIA:</label>
+							<select
+							id="pro_select" class="form-control select2 select2-hidden-accessible">
+							<option></option>
+							</select>
+							<label>COMUNE:</label>
+							<select id="com_select"
+							class="form-control select2 select2-hidden-accessible">
+							<option></option></select>
 				<div class="rox-sm-6">
 				</div>
 				</div>
@@ -120,8 +128,22 @@
         </div>
         <div class="card-body">
         <!-- OGGETTO AUTOCOMPLETE -->
-         <input id="comuni" name="comuni" class="form-control basicAutoComplete" type="text" autocomplete="off">
-         
+         <input id="comune" name="comune" class="form-control basicAutoComplete" type="text" autocomplete="off">
+         </br>
+         <button type="button" id="button" class="btn btn-lg btn-primary">Previsioni</button>
+       
+       <table class="table table-light table-striped">
+		<tr><th>Giorno</th>
+		<th>Previsioni</th>
+		<th>Temp max</th>
+		<th>Temp min</th>
+		<th>Precipitazioni</th>
+		<th>Alba</th>
+		<th>Tramonto</th></tr>
+		<tbody id="bodyMeteo">
+		</tbody>
+		</table>
+       
         </div>
         
 
@@ -153,7 +175,40 @@
 
 <script>
 
-$("#comuni").autocomplete({
+$(document).ready(function(){
+    $("#btnPrevisioni").prop("disabled", true);
+    var listaReg;
+    listaReg=fire_ajax_get("http://localhost:8080/LA_geo_ms/getListaRegioni");
+    listaReg.simpleData.forEach(function(regione) {
+        $("#reg_select").append(new Option(regione.idRegione, regione.regione));
+    });
+});
+
+
+$("#reg_select").change(function(){
+	    var idReg=$("#reg_select").val();
+	    var listaProv;
+	    $("#pro_select").empty();
+	    $("#pro_select").append(new Option("Seleziona una provincia", null));
+	    listaProv=fire_ajax_get("http://localhost:8080/LA_geo_ms/getListaProvince?id_regione="+idReg)
+	    listaProv.simpleData.forEach(function(provincia) {
+	        $("#pro_select").append(new Option(provincia.provincia, provincia.idProvincia));
+	    });
+	});
+	
+	
+$("#pro_select").change(function(){
+	    var idPro=$("#pro_select").val();
+	    var listaProv;
+	    $("#com_select").empty();
+	    $("#com_select").append(new Option("Seleziona un comune", null));
+	    listaCom=fire_ajax_get("http://localhost:8080/LA_geo_ms/getListaComuni?id_provincia="+idPro)
+	    listaCom.simpleData.forEach(function(comune) {
+	        $("#com_select").append(new Option(comune.comune, comune.idComune));
+	    });
+	});
+	
+$("#comune").autocomplete({
     source: function( request, response ) {
       $.ajax({
         url: "http://localhost:8080/LA_geo_ms/getComuneAutocomplete?text="+request.term,
@@ -172,30 +227,18 @@ $("#comuni").autocomplete({
       $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
     }
   });
+  
 
-
-
-
-
-
-$(document).ready(function(){
-    $("#btnPrevisioni").prop("disabled", true);
-    var listaReg;
-    listaReg=fire_ajax_get("http://localhost:8080/LA_geo_ms/getListaRegioni");
-    listaReg.regioni.forEach(function(regione) {
-        $("#reg_select").append(new Option(regione.nome, regione.id));
-    });
-
-$("#reg_select").change(function(){
-	    var idReg=$("#reg_select").val();
-	    var listaProv;
-	    $("#pro_select").empty();
-	    $("#pro_select").append(new Option("Seleziona una provincia", null));
-	    listaProv=fire_ajax_get("http://localhost:8080/LA_geo_ms/getListaProvince?idRegione="+idRegione)
-	    listaProv.province.forEach(function(provincia) {
-	        $("#pro_select").append(new Option(provincia.nome, provincia.sigla));
-	    });
-	})
+/*
+ 
+ $("#button").click(function(){
+	
+	var previsioni=fire_ajax_get("http://localhost:8080/LA_geo_ms/getMeteo?istat="+istat);
+	
+});	
+	});
+	
+	*/
 	
 </script>
 

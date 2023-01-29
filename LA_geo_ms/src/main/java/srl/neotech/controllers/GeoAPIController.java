@@ -11,13 +11,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import srl.neotech.model.Comune;
+import srl.neotech.model.ComuneAutocomplete;
 import srl.neotech.model.Elemento;
+import srl.neotech.model.MeteoGiornaliero;
 import srl.neotech.model.Provincia;
 import srl.neotech.model.Regione;
 import srl.neotech.requestresponse.GetListaComuniResponse;
 import srl.neotech.requestresponse.GetListaElementiResponse;
 import srl.neotech.requestresponse.GetListaProvinceResponse;
 import srl.neotech.requestresponse.GetListaRegioniResponse;
+import srl.neotech.requestresponse.GetMeteoResponse;
 import srl.neotech.requestresponse.ResponseBase;
 import srl.neotech.services.GeoService;
 
@@ -77,7 +80,7 @@ public class GeoAPIController {
 	
 	@ResponseBody
 	@GetMapping(value = "/getListaComuni",produces = MediaType.APPLICATION_JSON_VALUE)
-	public GetListaComuniResponse getListaComuni(@RequestParam("id_provincia") Integer idProvincia) {
+	public GetListaComuniResponse getListaComuni(@RequestParam("id_provincia") String idProvincia) {
 		
 		//inizializzo la response
 		GetListaComuniResponse response=new GetListaComuniResponse();
@@ -88,6 +91,53 @@ public class GeoAPIController {
 			
 			//preparo la response
 			response.setSimpleData(listaComuni);
+			response.setCode("OK");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			response.setCode("KO");
+			response.setDescr(e.getMessage());
+		}
+		return response;
+	}
+	
+	
+	@ResponseBody
+	@GetMapping(value = "/getComuneAutocomplete",produces = MediaType.APPLICATION_JSON_VALUE)
+	public GetListaComuniResponse getComuneAutocomplete(@RequestParam("text") String text) {
+		
+		//inizializzo la response
+		GetListaComuniResponse response=new GetListaComuniResponse();
+		
+		try {
+			//chiamo il service
+			List<ComuneAutocomplete> listaComuni = geoService.getComuneAutoComplete(text);
+			
+			//preparo la response
+			response.setSimpleData(listaComuni);
+			response.setCode("OK");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			response.setCode("KO");
+			response.setDescr(e.getMessage());
+		}
+		return response;
+	}
+	
+	@ResponseBody
+	@GetMapping(value = "/getMeteo",produces = MediaType.APPLICATION_JSON_VALUE)
+	public GetMeteoResponse getMeteo(@RequestParam("istat") String istat) {
+		
+		//inizializzo la response
+		GetMeteoResponse response=new GetMeteoResponse();
+		
+		try {
+			//chiamo il service
+			List<MeteoGiornaliero> meteo= geoService.getMeteo(istat);
+			
+			//preparo la response
+			response.setSimpleData(meteo);
 			response.setCode("OK");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
