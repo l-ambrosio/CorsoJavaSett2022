@@ -132,14 +132,12 @@
          </br>
          <button type="button" id="button" class="btn btn-lg btn-primary">Previsioni</button>
        
-       <table class="table table-light table-striped">
+       <table id="tabMeteo" class="table table-light table-striped">
 		<tr><th>Giorno</th>
 		<th>Previsioni</th>
 		<th>Temp max</th>
 		<th>Temp min</th>
 		<th>Precipitazioni</th>
-		<th>Alba</th>
-		<th>Tramonto</th></tr>
 		<tbody id="bodyMeteo">
 		</tbody>
 		</table>
@@ -175,10 +173,12 @@
 
 <script>
 
+var istat='10022';
+
 $(document).ready(function(){
     $("#btnPrevisioni").prop("disabled", true);
     var listaReg;
-    listaReg=fire_ajax_get("http://localhost:8080/LA_geo_ms/getListaRegioni");
+    listaReg=fire_ajax_get("/LA_geo_ms/getListaRegioni");
     listaReg.simpleData.forEach(function(regione) {
         $("#reg_select").append(new Option(regione.idRegione, regione.regione));
     });
@@ -190,7 +190,7 @@ $("#reg_select").change(function(){
 	    var listaProv;
 	    $("#pro_select").empty();
 	    $("#pro_select").append(new Option("Seleziona una provincia", null));
-	    listaProv=fire_ajax_get("http://localhost:8080/LA_geo_ms/getListaProvince?id_regione="+idReg)
+	    listaProv=fire_ajax_get("/LA_geo_ms/getListaProvince?id_regione="+idReg)
 	    listaProv.simpleData.forEach(function(provincia) {
 	        $("#pro_select").append(new Option(provincia.provincia, provincia.idProvincia));
 	    });
@@ -202,7 +202,7 @@ $("#pro_select").change(function(){
 	    var listaProv;
 	    $("#com_select").empty();
 	    $("#com_select").append(new Option("Seleziona un comune", null));
-	    listaCom=fire_ajax_get("http://localhost:8080/LA_geo_ms/getListaComuni?id_provincia="+idPro)
+	    listaCom=fire_ajax_get("/LA_geo_ms/getListaComuni?id_provincia="+idPro)
 	    listaCom.simpleData.forEach(function(comune) {
 	        $("#com_select").append(new Option(comune.comune, comune.idComune));
 	    });
@@ -211,7 +211,7 @@ $("#pro_select").change(function(){
 $("#comune").autocomplete({
     source: function( request, response ) {
       $.ajax({
-        url: "http://localhost:8080/LA_geo_ms/getComuneAutocomplete?text="+request.term,
+        url: "/LA_geo_ms/getComuneAutocomplete?text="+request.term,
         dataType: "json",
         
         success: function( data ) {
@@ -220,6 +220,7 @@ $("#comune").autocomplete({
       });
     },
     minLength: 3,
+   
     open: function() {
       $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
     },
@@ -227,18 +228,32 @@ $("#comune").autocomplete({
       $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
     }
   });
-  
 
-/*
- 
  $("#button").click(function(){
-	
-	var previsioni=fire_ajax_get("http://localhost:8080/LA_geo_ms/getMeteo?istat="+istat);
-	
-});	
+	 
+	var previsioni=fire_ajax_get("/LA_geo_ms/getMeteo?istat="+istat);
+	//$('#bodyMeteo').append('<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>');
+	$("#bodyMeteo").empty();
+	var html;
+	var iconaMeteo;
+	previsioni.simpleData.forEach(function(previsione){
+				html='';
+		        if (previsione.codiceMeteo==0 || previsione.codiceMeteo==1) iconaMeteo="<i class='fa-solid fa-sun'></i> soleggiato";
+		        else if (previsione.codiceMeteo==2 || previsione.codiceMeteo==3) iconaMeteo="<i class='fa-solid fa-cloud'></i> nuvoloso";
+		        else if (previsione.codiceMeteo<60) iconaMeteo="<i class='fa-solid fa-smog'></i> nebbia";
+		        else if (previsione.codiceMeteo<70) iconaMeteo="<i class='fa-solid fa-cloud-rain'></i> pioggia";
+		        else if (previsione.codiceMeteo<80) iconaMeteo="<i class='fa-regular fa-snowflake'></i> neve"
+		        else if (previsione.codiceMeteo<85) iconaMeteo="<i class='fa-solid fa-cloud-showers-heavy'></i> rovesci";
+		        else if (previsione.codiceMeteo<90) iconaMeteo="<i class='fa-solid fa-cloud-meatball'></i> bufera";
+		        else iconaMeteo="<i class='fa-solid fa-cloud-bolt'> temporale</i>";
+		        html="<tr><td>"+previsione.data+"</td><td>"+iconaMeteo+"</td><td>"+previsione.tempMax+"</td><td>"+previsione.tempMin+"</td><td>"+previsione.precipitazione+"</td></tr>";
+		   		$('#bodyMeteo').append(html);
+		
 	});
-	
-	*/
+			
+		  
+		});
+ 	
 	
 </script>
 

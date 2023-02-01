@@ -53,10 +53,12 @@ public class Comune {
 		this.idComune = idComune;
 		this.istat = istat;
 	}
+	
 	public Comune(String lat, String lang) {
 		super();
 		this.lat = lat;
 		this.lang = lang;
 	}
+	
 	
 }

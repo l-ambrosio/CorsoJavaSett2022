@@ -9,7 +9,8 @@ public class OpenMeteoDaily {
     private ArrayList<Double> temperature_2m_min;
     private ArrayList<Double> temperature_2m_max;
     private ArrayList<Double> rain_sum;
-	public ArrayList<String> getTime() {
+	
+    public ArrayList<String> getTime() {
 		return time;
 	}
 	public void setTime(ArrayList<String> time) {
@@ -39,7 +40,6 @@ public class OpenMeteoDaily {
 	public void setRain_sum(ArrayList<Double> rain_sum) {
 		this.rain_sum = rain_sum;
 	}
-    
     
 
 }

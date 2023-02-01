@@ -39,6 +39,7 @@ public class MeteoGiornaliero {
 	public void setPrecipitazione(String precipitazione) {
 		this.precipitazione = precipitazione;
 	}
+	
 	@Override
 	public String toString() {
 		return "MeteoGiornaliero [data=" + data + ", codiceMeteo=" + codiceMeteo + ", tempMin=" + tempMin + ", tempMax="

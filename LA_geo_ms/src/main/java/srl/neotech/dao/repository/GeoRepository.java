@@ -72,7 +72,7 @@ public class GeoRepository {
 		return regioni;
 	}
 	
-	public List<ComuneAutocomplete> getComunemAutoComplete(String txt){
+	public List<ComuneAutocomplete> getComuneAutoComplete(String txt){
 		//Parametri da passsare alla query
 	    MapSqlParameterSource params=new MapSqlParameterSource();
 		List<ComuneAutocomplete> comuni=new ArrayList<ComuneAutocomplete>();
@@ -80,24 +80,23 @@ public class GeoRepository {
 		//Query
 		String query="select comune,istat from citta where comune like :text";
 		comuni=jdbcTemplate.query(
-						query,
-		                params,
-		                (rs, rowNum) ->new ComuneAutocomplete(rs.getString("istat"),rs.getString("comune"))
-		        );
-      return comuni;
-}
+				query,
+				params,
+				(rs, rowNum) ->new ComuneAutocomplete(rs.getString("istat"),rs.getString("comune"))
+				);
+		return comuni;
+	}
 	
 	
 	public Comune getMeteo(String istat){
 		MapSqlParameterSource params=new MapSqlParameterSource();
 		params.addValue("istat", istat);
-		String query="select lat, lng  from geoloc where istat=:istat";
-		
+		String query="select lat, lng from geoloc where istat=:istat";
 		List<Comune> comuni = jdbcTemplate.query(
-			query,
-	        params,
-	        (rs, rowNum) -> new Comune(rs.getString("lat"), rs.getString("lng"))
-	        );
+				query,
+				params,
+				(rs, rowNum) -> new Comune(rs.getString("lat"), rs.getString("lng"))
+				);
    	 return comuni.get(0);
    	 
 	}

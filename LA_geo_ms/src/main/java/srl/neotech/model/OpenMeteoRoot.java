@@ -11,6 +11,7 @@ public class OpenMeteoRoot {
     private double elevation;
     private OpenMeteoDailyUnits daily_units;
     private OpenMeteoDaily daily;
+    
 	public double getLatitude() {
 		return latitude;
 	}
@@ -65,7 +66,5 @@ public class OpenMeteoRoot {
 	public void setDaily(OpenMeteoDaily daily) {
 		this.daily = daily;
 	}
-    
-    
 
 }

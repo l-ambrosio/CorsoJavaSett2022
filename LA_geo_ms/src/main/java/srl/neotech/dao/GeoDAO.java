@@ -33,7 +33,7 @@ public class GeoDAO {
 
 	
 	public List<ComuneAutocomplete> getComuneAutoComplete(String txt){
-		return geoRepository.getComunemAutoComplete(txt);
+		return geoRepository.getComuneAutoComplete(txt);
 	}
 	
 	public Comune getMeteo(String istat) {
