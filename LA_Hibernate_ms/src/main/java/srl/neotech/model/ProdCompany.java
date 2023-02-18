@@ -3,7 +3,7 @@ package srl.neotech.model;
 public class ProdCompany {
 	
 	private Integer id;
-	private String companyNome;
+	private String companyName;
 	
 	
 	public Integer getId() {
@@ -12,12 +12,12 @@ public class ProdCompany {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getCompanyNome() {
-		return companyNome;
+	public String getCompanyName() {
+		return companyName;
 	}
-	public void setCompanyNome(String companyNome) {
-		this.companyNome = companyNome;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
-	
+
 
 }

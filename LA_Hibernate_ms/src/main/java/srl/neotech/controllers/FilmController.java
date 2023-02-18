@@ -116,7 +116,7 @@ public class FilmController {
 		try {
 			Persona p = new Persona();
 			p.setId(person_Id);
-			p.setPersonNome(name);
+			p.setPersonName(name);
 			
 			 if (override) {
 		            filmService.insertPersona(p);
@@ -142,7 +142,7 @@ public class FilmController {
 		try {
 			ProdCompany p = new ProdCompany();
 			p.setId(company_Id);
-			p.setCompanyNome(name);
+			p.setCompanyName(name);
 			
 			if (override) {
 				filmService.insertCompany(p);
